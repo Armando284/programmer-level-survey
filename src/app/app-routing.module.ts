@@ -7,7 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'surveys', component: SurveysComponent },
-  { path: 'survey', component: SurveyComponent },
+  { path: 'survey/:language', component: SurveyComponent },
   { path: '', redirectTo: '/surveys', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];

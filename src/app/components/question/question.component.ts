@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Question } from 'src/app/interfaces/question';
 
 @Component({
   selector: 'app-question',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent {
-
+  @Input() question!: Question;
 }

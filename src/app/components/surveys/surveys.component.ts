@@ -14,6 +14,6 @@ export class SurveysComponent {
   ) { }
 
   goToSurvey(survey: string = '') {
-    this.router.navigate(['/survey', { language: survey }]);
+    this.router.navigate(['/survey', survey]);
   }
 }

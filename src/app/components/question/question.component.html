@@ -1,1 +1,8 @@
-<p>question works!</p>
+<div>
+  <h3>{{ question.title }}</h3>
+  <p>{{ question.body }}</p>
+  <hr />
+  <div *ngFor="let answer of question.answers">
+    <span>{{ answer.body }}</span>
+  </div>
+</div>
