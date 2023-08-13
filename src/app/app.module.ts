@@ -9,6 +9,8 @@ import { SurveysComponent } from './components/surveys/surveys.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { QuestionComponent } from './components/question/question.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
