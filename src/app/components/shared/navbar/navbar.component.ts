@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor() { }
+
+  addToFavorites() {
+    // TODO: call a service that adds to the fav general counting
+  }
+
+  share() {
+    // TODO: show sharing window
+  }
+
 }
