@@ -1,9 +1,32 @@
-section {
-  display: flex;
-  justify-content: start;
-  align-items: center;
+@use '@angular/material'as mat;
+
+header {
+  background: #eee;
   margin: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
   border-radius: 10px;
-  border: 1px solid black;
+}
+
+article {
+  // TODO: Make the article take all the height
+}
+
+section {
+  margin: 20px;
+}
+
+mat-grid-tile {
+  background: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    background: #ffd740;
+  }
 }
