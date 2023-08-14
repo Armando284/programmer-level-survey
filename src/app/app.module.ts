@@ -16,6 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatGridListModule,
     MatRippleModule,
     MatSidenavModule,
+    FormsModule,
+    MatRadioModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

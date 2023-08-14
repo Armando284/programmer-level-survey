@@ -1,8 +1,8 @@
-<h1 class="title">{{ language }} survey</h1>
-<hr />
-<div *ngIf="survey$ | async as survey">
-  <h3>{{ survey.language }}</h3>
-  <div *ngFor="let question of survey.questions">
-    <app-question [question]="question"></app-question>
+<div class="survey">
+  <h1 class="title">{{ language }} survey</h1>
+  <div *ngIf="survey$ | async as survey">
+    <div *ngFor="let question of survey.questions">
+      <app-question [question]="question"></app-question>
+    </div>
   </div>
 </div>
