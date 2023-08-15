@@ -1,8 +1,25 @@
 <div class="survey">
   <h1 class="title">{{ language }} survey</h1>
   <div *ngIf="survey$ | async as survey">
-    <div *ngFor="let question of survey.questions">
-      <app-question [question]="question"></app-question>
+    <div *ngFor="let question of survey.questions; let i = index">
+      <app-question
+        [question]="question"
+        (answerSelect)="addResponse($event, i)"
+      ></app-question>
     </div>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="getResults()"
+    class="mat-h1"
+  >
+    Get Results
+  </button>
+
+  <hr />
+  <h1>Result</h1>
+  <div *ngFor="let result of resultsByLevel | keyvalue">
+    <span>{{ result.key }}: {{ result.value }}</span>
   </div>
 </div>

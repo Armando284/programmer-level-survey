@@ -1,8 +1,9 @@
 import { Answer } from "./answer";
+import { level } from "./level";
 
 export interface Question {
   title: string,
   body: string,
-  level: "junior" | "semi-senior" | "senior",
+  level: level,
   answers: [Answer, Answer, Answer]
 }

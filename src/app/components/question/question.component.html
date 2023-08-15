@@ -11,8 +11,12 @@
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
-    <mat-radio-group class="answer-radio-group">
-      <mat-radio-button *ngFor="let answer of question.answers">
+    <mat-radio-group class="answer-radio-group" [(ngModel)]="isCorrectAnswer">
+      <mat-radio-button
+        *ngFor="let answer of question.answers"
+        [value]="answer.isCorrect"
+        (change)="sendResponse()"
+      >
         {{ answer.body }}
       </mat-radio-button>
     </mat-radio-group>
