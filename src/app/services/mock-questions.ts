@@ -11,7 +11,7 @@ export const mockSurvey: Survey = {
         { body: 'var', isCorrect: true },
         { body: 'const', isCorrect: false },
         { body: 'let', isCorrect: false }
-      ]
+      ],
     },
     {
       title: 'Objects',
@@ -21,7 +21,7 @@ export const mockSurvey: Survey = {
         { body: 'Object', isCorrect: false },
         { body: 'Map', isCorrect: false },
         { body: 'Set', isCorrect: true }
-      ]
+      ],
     },
     {
       title: 'Algorithms',
@@ -31,7 +31,7 @@ export const mockSurvey: Survey = {
         { body: 'Bubble Sort', isCorrect: false },
         { body: 'Quick Sort', isCorrect: true },
         { body: 'Merge Sort', isCorrect: false }
-      ]
+      ],
     }
   ]
 }

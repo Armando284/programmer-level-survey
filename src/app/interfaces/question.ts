@@ -5,5 +5,6 @@ export interface Question {
   title: string,
   body: string,
   level: level,
-  answers: [Answer, Answer, Answer]
+  answers: [Answer, Answer, Answer],
+  response?: boolean,
 }
