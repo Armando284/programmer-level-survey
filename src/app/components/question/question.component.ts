@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Question } from 'src/app/interfaces/question';
 import { Output, EventEmitter } from '@angular/core';
-import { QuestionResponse } from 'src/app/interfaces/question-response';
 
 @Component({
   selector: 'app-question',
@@ -10,18 +9,12 @@ import { QuestionResponse } from 'src/app/interfaces/question-response';
 })
 export class QuestionComponent {
   @Input() question!: Question;
-  @Output() answerSelect = new EventEmitter<QuestionResponse>();
-  isCorrectAnswer: boolean;
+  @Output() answerSelect = new EventEmitter<boolean>();
 
   constructor() {
-    this.isCorrectAnswer = false;
   }
 
-  sendResponse() {
-    const response: QuestionResponse = {
-      level: this.question.level,
-      value: this.isCorrectAnswer
-    }
-    this.answerSelect.emit(response);
+  sendResponse(isCorrect: boolean = false) {
+    this.answerSelect.emit(isCorrect);
   }
 }

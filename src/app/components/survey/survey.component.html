@@ -17,9 +17,22 @@
     Get Results
   </button>
 
-  <hr />
-  <h1>Result</h1>
-  <div *ngFor="let result of resultsByLevel | keyvalue">
-    <span>{{ result.key }}: {{ result.value }}</span>
+  <div *ngIf="isSurveyFinished">
+    <hr />
+    <h1>Result</h1>
+    <div *ngFor="let result of resultsByLevel | keyvalue">
+      <span
+        >{{ result.key }}: {{ result.value }}/{{
+          getLevelAmountOfQUestions(result.key)
+        }}</span
+      >
+    </div>
+
+    <hr />
+    <h1>Wrong answers</h1>
+    <h3>Things you must study</h3>
+    <div *ngFor="let question of getWrongQuestions()">
+      <span>{{ question.title }}</span>
+    </div>
   </div>
 </div>
