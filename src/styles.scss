@@ -16,3 +16,14 @@ body {
 .shadow-lg {
   box-shadow: 0 0 6px 6px rgba(52, 52, 52, .3);
 }
+
+main {
+  padding-top: 120px;
+}
+
+.card-md {
+  width: 50vw;
+  min-width: 300px;
+  max-width: 800px;
+  margin-bottom: 8px;
+}
