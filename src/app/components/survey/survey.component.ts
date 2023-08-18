@@ -37,11 +37,11 @@ export class SurveyComponent {
     this.questions.forEach(data => { data.response = false });
   }
 
-  addResponse(isCorrect: boolean, idx: number) {
+  addResponse(isCorrect: boolean, idx: number): void {
     this.questions[idx].response = isCorrect;
   }
 
-  getResults() {
+  getResults(): void {
     this.isSurveyFinished = true;
     this.resultsByLevel = this.questions.reduce((acc, curr): Map<level, number> => {
       if (!acc.has(curr.level)) {
@@ -52,7 +52,7 @@ export class SurveyComponent {
     }, new Map<level, number>());
   }
 
-  getLevelAmountOfQUestions(level: level): number {
+  getLevelAmountOfQuestions(level: level): number {
     return this.questions.reduce((acc, curr) => acc + (curr.level === level ? 1 : 0), 0);
   }
 

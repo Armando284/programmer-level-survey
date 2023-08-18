@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { SurveysComponent } from './components/surveys/surveys.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ResultsComponent } from './components/results/results.component';
 
 const routes: Routes = [
   { path: 'surveys', component: SurveysComponent },
   { path: 'survey/:language', component: SurveyComponent },
+  { path: 'results', component: ResultsComponent },
   { path: '', redirectTo: '/surveys', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];

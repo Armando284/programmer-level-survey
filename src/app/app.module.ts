@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatCardModule } from '@angular/material/card';
     SurveysComponent,
     SurveyComponent,
     QuestionComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
