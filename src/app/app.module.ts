@@ -20,6 +20,11 @@ import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ResultsComponent } from './components/results/results.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,11 @@ import { ResultsComponent } from './components/results/results.component';
     FormsModule,
     MatRadioModule,
     MatCardModule,
+    MatChipsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatStepperModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
