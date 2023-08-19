@@ -17,3 +17,5 @@ $is-dark-theme: map.get($color-config, 'is-dark');
 
 // Colors
 $primary-color: mat.get-color-from-palette($primary-palette, 500);
+$accent-color: mat.get-color-from-palette($accent-palette, 500);
+$warn-color: mat.get-color-from-palette($warn-palette, 500);
