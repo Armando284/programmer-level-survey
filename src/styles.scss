@@ -1,3 +1,5 @@
+@import './variables';
+
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
@@ -9,6 +11,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+main {
+  padding-top: 120px;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
@@ -17,13 +23,44 @@ body {
   box-shadow: 0 0 6px 6px rgba(52, 52, 52, .3);
 }
 
-main {
-  padding-top: 120px;
-}
-
 .card-md {
   width: 50vw;
   min-width: 300px;
   max-width: 800px;
   margin-bottom: 8px;
+}
+
+.col-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+pre {
+  background: darkblue;
+  color: yellow;
+  border: 2px solid yellow;
+  border-radius: 10px;
+}
+
+.error-msg {
+  color: orangered;
+  font-weight: 100;
+}
+
+.primary {
+  background-color: $primary-color;
+  color: aliceblue;
+
+}
+
+.accent {
+  background-color: $accent-color;
+
+}
+
+.warn {
+  background-color: $warn-color;
+
 }
