@@ -9,21 +9,24 @@ export class ResultsService {
 
   private isSurveyFinished!: boolean;
   private resultsByLevel!: Map<level, number>;
-  private wrongQuestions!: Question[];
+  private totalQuestionsByLevel!: Map<level, number>;
+  private wrongQuestionsTitles!: string[];
 
   constructor() { }
 
-  addResults(isSurveyFinished: boolean, resultsByLevel: Map<level, number>, wrongQuestions: Question[]) {
+  addResults(isSurveyFinished: boolean, resultsByLevel: Map<level, number>, totalQuestionsByLevel: Map<level, number>, wrongQuestions: string[]) {
     this.isSurveyFinished = isSurveyFinished;
     this.resultsByLevel = resultsByLevel;
-    this.wrongQuestions = wrongQuestions;
+    this.totalQuestionsByLevel = totalQuestionsByLevel;
+    this.wrongQuestionsTitles = wrongQuestions;
   }
 
   getResults() {
     return {
       isSurveyFinished: this.isSurveyFinished,
       resultsByLevel: this.resultsByLevel,
-      wrongQuestions: this.wrongQuestions,
+      totalQuestionsByLevel: this.totalQuestionsByLevel,
+      wrongQuestions: this.wrongQuestionsTitles,
     }
   }
 }
