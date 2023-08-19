@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscribable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { level } from 'src/app/interfaces/level';
 import { Question } from 'src/app/interfaces/question';
 import { Survey } from 'src/app/interfaces/survey';
+import { ResultsService } from 'src/app/services/results.service';
 import { SurveyService } from 'src/app/services/survey.service';
 
 @Component({
@@ -17,10 +18,9 @@ export class SurveyComponent {
   questions!: Question[];
   subscription!: Subscription;
   language: string = '';
-  resultsByLevel!: Map<level, number>;
   isSurveyFinished!: boolean;
 
-  constructor(private route: ActivatedRoute, private surveyService: SurveyService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService, private resultsService: ResultsService) { }
 
   ngOnInit() {
     this.language = this.route.snapshot.paramMap.get('language')!;
@@ -43,7 +43,12 @@ export class SurveyComponent {
 
   getResults(): void {
     this.isSurveyFinished = true;
-    this.resultsByLevel = this.questions.reduce((acc, curr): Map<level, number> => {
+    this.resultsService.addResults(this.isSurveyFinished, this.resultsByLevel, this.questionsByLevel, this.wrongQuestions);
+    this.router.navigate(['results']);
+  }
+
+  private get resultsByLevel(): Map<level, number> {
+    return this.questions.reduce((acc, curr): Map<level, number> => {
       if (!acc.has(curr.level)) {
         acc.set(curr.level, 0);
       }
@@ -52,11 +57,17 @@ export class SurveyComponent {
     }, new Map<level, number>());
   }
 
-  getLevelAmountOfQuestions(level: level): number {
-    return this.questions.reduce((acc, curr) => acc + (curr.level === level ? 1 : 0), 0);
+  private get questionsByLevel(): Map<level, number> {
+    return this.questions.reduce((acc, curr): Map<level, number> => {
+      if (!acc.has(curr.level)) {
+        acc.set(curr.level, 0);
+      }
+      acc.set(curr.level, acc.get(curr.level)! + 1);
+      return acc;
+    }, new Map<level, number>());
   }
 
-  getWrongQuestions(): Question[] {
-    return this.questions.filter(data => !data.response)
+  private get wrongQuestions(): string[] {
+    return this.questions.filter(data => !data.response).map(data => data.body);
   }
 }

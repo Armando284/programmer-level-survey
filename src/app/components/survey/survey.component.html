@@ -1,19 +1,39 @@
-<div class="survey">
-  <h1 class="title">{{ language }} survey</h1>
+<div class="col-container survey">
+  <h1 class="mat-headline-1">{{ language + " survey" | uppercase }}</h1>
   <div *ngIf="survey$ | async as survey">
-    <div *ngFor="let question of survey.questions; let i = index">
-      <app-question
-        [question]="question"
-        (answerSelect)="addResponse($event, i)"
-      ></app-question>
-    </div>
+    <mat-stepper orientation="vertical" linear="true" #stepper>
+      <mat-step
+        *ngFor="let question of survey.questions; let i = index"
+        label="Question {{ i + 1 }}"
+        state="{{ i + 1 }}"
+      >
+        <app-question
+          [question]="question"
+          (answerSelect)="addResponse($event, i); stepper.next()"
+        ></app-question>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="getResults()"
+            class="mat-h1"
+          >
+            Get Results
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="stepper.reset()"
+            class="mat-h1"
+          >
+            Reset
+          </button>
+        </div>
+      </mat-step>
+    </mat-stepper>
   </div>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="getResults()"
-    class="mat-h1"
-  >
-    Get Results
-  </button>
 </div>
