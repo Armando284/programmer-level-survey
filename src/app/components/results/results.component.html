@@ -1,4 +1,4 @@
-<div>
+<div class="col-container">
   <h1 class="mat-headline-1">Results</h1>
   <mat-card class="card-md">
     <mat-card-header>
@@ -8,11 +8,26 @@
     </mat-card-header>
     <mat-card-content>
       <div *ngFor="let result of resultsByLevel | keyvalue">
-        <span
-          >{{ result.key }}: {{ result.value }}/{{
-            getLevelAmountOfQUestions(result.key)
-          }}</span
+        <mat-chip-listbox aria-label="Question tags">
+          <mat-chip-option
+            [color]="tagColor(result.key)"
+            selected
+            selectable="false"
+          >
+            {{ result.key | uppercase }}: {{ result.value }}/{{
+              totalQuestionsByLevel.get(result.key)
+            }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+        <mat-progress-bar
+          [color]="tagColor(result.key)"
+          mode="buffer"
+          [value]="
+            getValue(result.value, totalQuestionsByLevel.get(result.key))
+          "
+          [bufferValue]="100"
         >
+        </mat-progress-bar>
       </div>
     </mat-card-content>
   </mat-card>
@@ -20,13 +35,29 @@
   <mat-card class="card-md">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>Things you must study</mat-card-title>
+        <mat-card-title>Wrong answers:</mat-card-title>
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <div *ngFor="let question of getWrongQuestions()">
-        <span>{{ question.title }}</span>
-      </div>
+      <ng-container
+        *ngIf="
+          wrongQuestionsTitles.length > 0;
+          then wrongQuestions;
+          else noWrongQuestions
+        "
+      ></ng-container>
     </mat-card-content>
   </mat-card>
 </div>
+
+<ng-template #wrongQuestions>
+  <ol>
+    <li *ngFor="let question of wrongQuestionsTitles" class="error-msg">
+      {{ question }}
+    </li>
+  </ol>
+</ng-template>
+
+<ng-template #noWrongQuestions>
+  <span>You've got everything correctly. Impressive!</span>
+</ng-template>
