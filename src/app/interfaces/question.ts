@@ -6,6 +6,6 @@ export interface Question {
   body: string,
   code_md_snippet?: string,
   level: level,
-  answers: [Answer, Answer, Answer],
+  answers: [Answer, Answer, Answer, Answer?],
   response?: boolean,
 }

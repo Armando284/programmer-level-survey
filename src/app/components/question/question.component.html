@@ -26,10 +26,10 @@
     <mat-radio-group class="answer-radio-group">
       <mat-radio-button
         *ngFor="let answer of question.answers"
-        [value]="answer.isCorrect"
-        (change)="sendResponse(answer.isCorrect)"
+        [value]="answer?.isCorrect"
+        (change)="sendResponse(answer?.isCorrect)"
       >
-        {{ answer.body }}
+        {{ answer?.body }}
       </mat-radio-button>
     </mat-radio-group>
   </mat-card-content>
