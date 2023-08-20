@@ -264,16 +264,492 @@ export const mockSurvey: Survey = {
       ],
     },
     // NOTE: Semi senior questions
+    {
+      subject: 'JavaScript API',
+      body: 'What is the purpose of the this keyword in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'It refers to the current function being executed.', isCorrect: false },
+        { body: 'It refers to the object on which a method is being called.', isCorrect: true },
+        { body: 'It refers to the global object.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Data types',
+      body: 'What is the difference between undefined and null in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'They are identical and can be used interchangeably.', isCorrect: false },
+        { body: 'undefined is the default value for uninitialized variables, while null is an assigned value representing no value or empty object reference.', isCorrect: true },
+        { body: 'undefined represents a function that has no return statement, while null represents a function that explicitly returns nothing.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Functions',
+      body: 'What is a closure in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'A closure is a way to implement private variables and functions in JavaScript.', isCorrect: true },
+        { body: 'A closure is a built-in JavaScript function.', isCorrect: false },
+        { body: 'A closure is a type of loop used for asynchronous operations.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Conditionals',
+      body: 'What is the difference between == and === in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both perform loose equality comparison.', isCorrect: false },
+        { body: '== performs type coercion, while === performs strict equality comparison without type coercion.', isCorrect: true },
+        { body: '== compares values, while === compares references.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'JavaScript API',
+      body: 'What is the purpose of the bind() method in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To bind a function to an object as its method.', isCorrect: false },
+        { body: 'To create a new function with a specific context for this keyword.', isCorrect: true },
+        { body: 'To bind event handlers to DOM elements.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'JavaScript API',
+      body: 'What is the purpose of the map() method in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To create a new array by applying a function to each element of an existing array.', isCorrect: true },
+        { body: 'To filter an array based on a given condition.', isCorrect: false },
+        { body: 'To sort an array in ascending order.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Promises',
+      body: 'What is the purpose of the Promise object in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To define a class for creating new objects.', isCorrect: false },
+        { body: 'To handle asynchronous operations and provide a more structured way to work with callbacks.', isCorrect: true },
+        { body: 'To handle errors and exceptions in JavaScript.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Async/Await',
+      body: 'What is the purpose of the async and await keywords in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To define asynchronous functions.', isCorrect: true },
+        { body: 'To handle errors and exceptions in asynchronous code.', isCorrect: false },
+        { body: 'To create generators for iterating over collections.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Objects',
+      body: 'What is the difference between a shallow copy and a deep copy of an object in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both create an exact copy of the object.', isCorrect: false },
+        { body: 'A shallow copy only copies the properties of the object, while a deep copy copies both properties and methods.', isCorrect: false },
+        { body: 'A shallow copy copies only the references of nested objects, while a deep copy creates new copies of all nested objects.', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Functions',
+      body: 'What is an Immediately Invoked Function Expression (IIFE) in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'It is a function that is invoked immediately after its declaration.', isCorrect: true },
+        { body: 'It is a function that is invoked only when explicitly called by another function.', isCorrect: false },
+        { body: 'It is a function that is invoked automatically by the JavaScript runtime.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Object Oriented Programming',
+      body: 'What is the purpose of the super keyword in JavaScript classes?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'It refers to the parent class constructor.', isCorrect: true },
+        { body: 'It refers to the child class constructor.', isCorrect: false },
+        { body: 'It refers to the current instance of the class.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Loops',
+      body: 'What is the difference between the for...in and for...of loops in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both iterate over arrays.', isCorrect: false },
+        { body: 'The for...in loop iterates over object properties, while the for...of loop iterates over iterable objects like arrays and strings.', isCorrect: true },
+        { body: 'The for...in loop iterates over the values of an array, while the for...of loop iterates over the keys.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Try/Catch',
+      body: 'What is the purpose of the try...catch statement in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To handle asynchronous operations and provide a more structured way to work with callbacks.', isCorrect: false },
+        { body: 'To handle errors and exceptions and provide a fallback mechanism.', isCorrect: true },
+        { body: 'To define a block of code that will be executed regardless of whether an error occurs or not.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Functions',
+      body: 'What is the difference between a function declaration and a function expression in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both define functions.', isCorrect: false },
+        { body: 'A function declaration is hoisted, while a function expression is not hoisted.', isCorrect: true },
+        { body: 'A function declaration is used for named functions, while a function expression is used for anonymous functions.', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Array manipulation',
+      body: 'What is the purpose of the reduce() method in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To iterate over an array and execute a provided function on each element.', isCorrect: false },
+        { body: 'To concatenate the elements of an array into a single string.', isCorrect: false },
+        { body: 'To reduce the array to a single value by applying a function to each element.', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Timers',
+      body: 'What is the difference between setTimeout() and setInterval() in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both execute a function after a specified delay.', isCorrect: false },
+        { body: 'setTimeout() executes a function once after a specified delay, while setInterval() executes a function repeatedly at a specified interval.', isCorrect: true },
+        { body: 'setInterval() executes a function once after a specified delay, while setTimeout() executes a function repeatedly at a specified interval.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Functions',
+      body: 'What is the difference between rest parameters and spread syntax in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both perform the same operation.', isCorrect: false },
+        { body: 'Rest parameters are used in function calls, while spread syntax is used in function definitions.', isCorrect: false },
+        { body: 'Rest parameters collect all remaining arguments into an array, while spread syntax spreads an array into individual elements.', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Objects',
+      body: 'What is the purpose of the Object.keys() method in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To determine if a given property exists in an object.', isCorrect: false },
+        { body: 'To create a new object with the specified keys and values.', isCorrect: false },
+        { body: 'To retrieve an array of all enumerable properties of an object.', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Functions',
+      body: 'What is the difference between an arrow function and a regular function in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both define functions.', isCorrect: false },
+        { body: 'Arrow functions do not have their own this keyword and cannot be used as constructors, while regular functions have their own this keyword and can be used as constructors.', isCorrect: true },
+        { body: 'Arrow functions are used for asynchronous operations, while regular functions are used for synchronous operations.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Fetch',
+      body: 'What is the purpose of the fetch() function in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'To perform calculations and mathematical operations.', isCorrect: false },
+        { body: 'To retrieve data from a remote server using HTTP requests.', isCorrect: true },
+        { body: 'To manipulate the DOM and update HTML elements dynamically.', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Variable declaration',
+      body: 'What is the difference between the let and var keywords in JavaScript?',
+      level: 'semi-senior',
+      answers: [
+        { body: 'There is no difference; they both declare variables with block scope.', isCorrect: false },
+        { body: 'let variables have block scope, while var variables have function scope.', isCorrect: true },
+        { body: 'let variables can be redeclared, while var variables cannot be redeclared.', isCorrect: false },
+      ],
+    },
     // NOTE: Senior questions
     {
+      subject: 'Data Structures',
+      body: 'Which data structure is best suited for implementing a LIFO (Last-In, First-Out) behavior?',
+      level: 'senior',
+      answers: [
+        { body: 'Array', isCorrect: false },
+        { body: 'Linked List', isCorrect: false },
+        { body: 'Stack', isCorrect: true },
+        { body: 'Queue', isCorrect: false },
+      ],
+    },
+    {
       subject: 'Algorithms',
-      body: 'What of this 3 sort algorithms has the best performance in speed and memory?',
+      body: 'Which sorting algorithm has the best average-case time complexity?',
       level: 'senior',
       answers: [
         { body: 'Bubble Sort', isCorrect: false },
         { body: 'Quick Sort', isCorrect: true },
-        { body: 'Merge Sort', isCorrect: false }
+        { body: 'Insertion Sort', isCorrect: false },
+        { body: 'Merge Sort', isCorrect: false },
       ],
-    }
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to encapsulate a group of individual factories for related objects?',
+      level: 'senior',
+      answers: [
+        { body: 'Singleton', isCorrect: false },
+        { body: 'Factory', isCorrect: false },
+        { body: 'Abstract Factory', isCorrect: true },
+        { body: 'Prototype', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'Given an array of integers, how can you find the maximum subarray sum efficiently?',
+      level: 'senior',
+      answers: [
+        { body: 'Using a nested loop to calculate the sum of all possible subarrays.', isCorrect: false },
+        { body: 'Using Kadane\'s algorithm.', isCorrect: true },
+        { body: 'Using binary search.', isCorrect: false },
+        { body: 'Using depth-first search (DFS).', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure is commonly used to implement a priority queue?',
+      level: 'senior',
+      answers: [
+        { body: 'Linked List', isCorrect: false },
+        { body: 'Queue', isCorrect: false },
+        { body: 'Heap', isCorrect: true },
+        { body: 'Stack', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'What is memoization in the context of dynamic programming?',
+      level: 'senior',
+      answers: [
+        { body: 'A technique to optimize recursive algorithms by storing previously computed results', isCorrect: true },
+        { body: 'A technique to encrypt sensitive data in JavaScript', isCorrect: false },
+        { body: 'A technique to serialize and deserialize objects', isCorrect: false },
+        { body: 'A technique to compress data for efficient storage', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to define a family of algorithms and make them interchangeable?',
+      level: 'senior',
+      answers: [
+        { body: 'Strategy', isCorrect: true },
+        { body: 'Observer', isCorrect: false },
+        { body: 'Decorator', isCorrect: false },
+        { body: 'Adapter', isCorrect: false },
+      ],
+    },
+    // FIXME: check correct answers from here on!
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure provides constant-time insertion, deletion, and retrieval of the maximum element?',
+      level: 'senior',
+      answers: [
+        { body: 'Linked List', isCorrect: false },
+        { body: 'Stack', isCorrect: false },
+        { body: 'Queue', isCorrect: false },
+        { body: 'Heap', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'What is the time complexity of a binary search algorithm?',
+      level: 'senior',
+      answers: [
+        { body: 'O(1)', isCorrect: false },
+        { body: 'O(log n)', isCorrect: true },
+        { body: 'O(n)', isCorrect: false },
+        { body: 'O(n log n)', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to ensure a class has only one instance and provides a global point of access to it?',
+      level: 'senior',
+      answers: [
+        { body: 'Singleton', isCorrect: true },
+        { body: 'Factory', isCorrect: false },
+        { body: 'Abstract Factory', isCorrect: false },
+        { body: 'Prototype', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure is suitable for implementing a cache with limited capacity?',
+      level: 'senior',
+      answers: [
+        { body: 'Linked List', isCorrect: true },
+        { body: 'Stack', isCorrect: false },
+        { body: 'Queue', isCorrect: false },
+        { body: 'Map', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'What is the time complexity of a hash table\'s average-case insertion, deletion, and retrieval operations?',
+      level: 'senior',
+      answers: [
+        { body: 'O(1)', isCorrect: true },
+        { body: 'O(log n)', isCorrect: false },
+        { body: 'O(n)', isCorrect: false },
+        { body: 'O(n log n)', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to notify multiple objects about state changes in another object?',
+      level: 'senior',
+      answers: [
+        { body: 'Strategy', isCorrect: false },
+        { body: 'Observer', isCorrect: true },
+        { body: 'Decorator', isCorrect: false },
+        { body: 'Adapter', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'Which algorithm is commonly used to find the shortest path between two nodes in a weighted graph?',
+      level: 'senior',
+      answers: [
+        { body: 'Breadth-First Search (BFS)', isCorrect: false },
+        { body: 'Depth-First Search (DFS)', isCorrect: true },
+        { body: 'Dijkstra\'s algorithm', isCorrect: false },
+        { body: 'Bellman-Ford algorithm', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure is best suited for implementing a breadth-first search traversal of a graph?',
+      level: 'senior',
+      answers: [
+        { body: 'Linked List', isCorrect: true },
+        { body: 'Stack', isCorrect: false },
+        { body: 'Queue', isCorrect: false },
+        { body: 'Heap', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'What is the time complexity of a bubble sort algorithm?',
+      level: 'senior',
+      answers: [
+        { body: 'O(1)', isCorrect: false },
+        { body: 'O(log n)', isCorrect: false },
+        { body: 'O(n)', isCorrect: false },
+        { body: 'O(n^2)', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to add new functionality to an existing object dynamically?',
+      level: 'senior',
+      answers: [
+        { body: 'Strategy', isCorrect: false },
+        { body: 'Observer', isCorrect: false },
+        { body: 'Decorator', isCorrect: true },
+        { body: 'Adapter', isCorrect: false },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'Which algorithm is commonly used to find the longest common subsequence between two strings?',
+      level: 'senior',
+      answers: [
+        { body: 'Breadth-First Search (BFS)', isCorrect: false },
+        { body: 'Depth-First Search (DFS)', isCorrect: false },
+        { body: 'Dijkstra\'s algorithm', isCorrect: false },
+        { body: 'Longest Common Subsequence (LCS) algorithm', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure is commonly used to implement a graph?',
+      level: 'senior',
+      answers: [
+        { body: 'Linked List', isCorrect: false },
+        { body: 'Stack', isCorrect: false },
+        { body: 'Queue', isCorrect: false },
+        { body: 'Adjacency List', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'What is the time complexity of a quicksort algorithm in the worst case?',
+      level: 'senior',
+      answers: [
+        { body: 'O(1)', isCorrect: false },
+        { body: 'O(log n)', isCorrect: false },
+        { body: 'O(n)', isCorrect: false },
+        { body: 'O(n^2)', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to separate the construction of complex objects from their representation?',
+      level: 'senior',
+      answers: [
+        { body: 'Singleton', isCorrect: false },
+        { body: 'Factory', isCorrect: false },
+        { body: 'Abstract Factory', isCorrect: false },
+        { body: 'Builder', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'Which algorithm is commonly used to find the shortest path between all pairs of nodes in a weighted graph?',
+      level: 'senior',
+      answers: [
+        { body: 'Breadth-First Search (BFS)', isCorrect: false },
+        { body: 'Depth-First Search (DFS)', isCorrect: false },
+        { body: 'Dijkstra\'s algorithm', isCorrect: false },
+        { body: 'Floyd-Warshall algorithm', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Data Structures',
+      body: 'Which data structure is commonly used to implement a First-In, First-Out (FIFO) behavior?',
+      level: 'senior',
+      answers: [
+        { body: 'Array', isCorrect: false },
+        { body: 'Linked List', isCorrect: false },
+        { body: 'Stack', isCorrect: false },
+        { body: 'Queue', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Algorithms',
+      body: 'What is the time complexity of a merge sort algorithm?',
+      level: 'senior',
+      answers: [
+        { body: 'O(1)', isCorrect: false },
+        { body: 'O(log n)', isCorrect: false },
+        { body: 'O(n)', isCorrect: false },
+        { body: 'O(n log n)', isCorrect: true },
+      ],
+    },
+    {
+      subject: 'Design Patterns',
+      body: 'Which design pattern is used to convert the interface of a class into another interface clients expect?',
+      level: 'senior',
+      answers: [
+        { body: 'Singleton', isCorrect: false },
+        { body: 'Factory', isCorrect: false },
+        { body: 'Abstract Factory', isCorrect: false },
+        { body: 'Adapter', isCorrect: true },
+      ],
+    },
   ]
 }
