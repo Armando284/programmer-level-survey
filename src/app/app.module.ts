@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatFormFieldModule,
     MatStepperModule,
     MatProgressBarModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
