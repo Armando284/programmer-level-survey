@@ -552,7 +552,6 @@ export const mockSurvey: Survey = {
         { body: 'Adapter', isCorrect: false },
       ],
     },
-    // FIXME: check correct answers from here on!
     {
       subject: 'Data Structures',
       body: 'Which data structure provides constant-time insertion, deletion, and retrieval of the maximum element?',
@@ -625,8 +624,8 @@ export const mockSurvey: Survey = {
       level: 'senior',
       answers: [
         { body: 'Breadth-First Search (BFS)', isCorrect: false },
-        { body: 'Depth-First Search (DFS)', isCorrect: true },
-        { body: 'Dijkstra\'s algorithm', isCorrect: false },
+        { body: 'Depth-First Search (DFS)', isCorrect: false },
+        { body: 'Dijkstra\'s algorithm', isCorrect: true },
         { body: 'Bellman-Ford algorithm', isCorrect: false },
       ],
     },
@@ -635,9 +634,9 @@ export const mockSurvey: Survey = {
       body: 'Which data structure is best suited for implementing a breadth-first search traversal of a graph?',
       level: 'senior',
       answers: [
-        { body: 'Linked List', isCorrect: true },
+        { body: 'Linked List', isCorrect: false },
         { body: 'Stack', isCorrect: false },
-        { body: 'Queue', isCorrect: false },
+        { body: 'Queue', isCorrect: true },
         { body: 'Heap', isCorrect: false },
       ],
     },
@@ -703,8 +702,8 @@ export const mockSurvey: Survey = {
       answers: [
         { body: 'Singleton', isCorrect: false },
         { body: 'Factory', isCorrect: false },
-        { body: 'Abstract Factory', isCorrect: false },
         { body: 'Builder', isCorrect: true },
+        { body: 'Abstract Factory', isCorrect: false },
       ],
     },
     {
@@ -714,8 +713,8 @@ export const mockSurvey: Survey = {
       answers: [
         { body: 'Breadth-First Search (BFS)', isCorrect: false },
         { body: 'Depth-First Search (DFS)', isCorrect: false },
-        { body: 'Dijkstra\'s algorithm', isCorrect: false },
-        { body: 'Floyd-Warshall algorithm', isCorrect: true },
+        { body: 'Dijkstra\'s algorithm', isCorrect: true },
+        { body: 'Floyd-Warshall algorithm', isCorrect: false },
       ],
     },
     {
@@ -746,10 +745,11 @@ export const mockSurvey: Survey = {
       level: 'senior',
       answers: [
         { body: 'Singleton', isCorrect: false },
+        { body: 'Adapter', isCorrect: true },
         { body: 'Factory', isCorrect: false },
         { body: 'Abstract Factory', isCorrect: false },
-        { body: 'Adapter', isCorrect: true },
       ],
     },
+    // FIXME: check correct answers from here on!
   ]
 }
