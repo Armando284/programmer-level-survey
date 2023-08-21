@@ -24,7 +24,7 @@ export class SurveyComponent {
 
   ngOnInit() {
     this.language = this.route.snapshot.paramMap.get('language')!;
-    this.survey$ = this.surveyService.getSurvey(this.language);
+    this.survey$ = this.surveyService.javascriptSurvey;
     this.subscription = this.survey$.subscribe(data => {
       this.questions = data.questions;
     });

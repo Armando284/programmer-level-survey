@@ -1,20 +1,47 @@
-<header>
-  <h1 class="mat-headline-1">Programmer level survey.</h1>
-  <p class="mat-headline-4">
-    Have you ever asked what is your software engineer level? <br />Answer the
-    question honestly to get you the most realistic result.
-    <br />
-    <i>Only JavaScript question for now.</i>
-  </p>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="goToSurvey('javascript')"
-    class="mat-h1"
-  >
-    START
-  </button>
-</header>
+<div class="back-image">
+  <header>
+    <h1 class="mat-headline-1">javascript level survey</h1>
+    <span class="mat-headline-5">
+      Have you ever asked what is your software engineer level?
+    </span>
+    <i class="mat-headline-5">
+      Answer the questions and get your JavaScript level as result.
+    </i>
+    <a
+      mat-raised-button
+      color="accent"
+      [routerLink]="['/survey', 'javascript']"
+      routerLinkActive="router-link-active"
+      class="mat-h1"
+    >
+      START
+    </a>
+  </header>
+</div>
 <article>
-  <section></section>
+  <section>
+    <div class="section-container">
+      <span class="mat-headline-4">Themes</span>
+      <mat-chip-set class="chip-group">
+        <mat-chip class="example-box" *ngFor="let subject of subjects">
+          {{ subject }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+  </section>
+  <section>
+    <div class="section-container">
+      <span class="mat-headline-4">Objective</span>
+      <p>
+        This survey's objective it's to provide a list of SIMPLE QUESTIONS about
+        the most common knowledge points of each level of proficiency in the
+        JavaScript programming language.
+      </p>
+      <p>
+        Answering the full survey will give you an idea of what is your current
+        level of knowledge in the language or what important matters you still
+        have to learn.
+      </p>
+    </div>
+  </section>
 </article>

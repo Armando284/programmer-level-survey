@@ -1,1 +1,38 @@
-<footer><p>footer works !</p></footer>
+<footer>
+  <section class="copyright inline-text">
+    <mat-icon>copyright</mat-icon>
+    <span class="mat-header-6">
+      {{ date | date : "y" }}
+    </span>
+    <span> Armando Peña Tamayo </span>
+    <div>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+    </div>
+  </section>
+  <section id="assets">
+    <span>
+      Foto de
+      <a
+        mat-button
+        color="accent"
+        href="https://unsplash.com/es/@ffstop?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        target="_blank"
+      >
+        <mat-icon>exit_to_app</mat-icon>
+        Fotis Fotopoulos
+      </a>
+      en
+      <a
+        mat-button
+        color="accent"
+        href="https://unsplash.com/es/fotos/6sAl6aQ4OWI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        target="_blank"
+      >
+        <mat-icon>exit_to_app</mat-icon>
+        Unsplash
+      </a>
+    </span>
+  </section>
+</footer>

@@ -11,10 +11,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-main {
-  padding-top: 120px;
-}
-
 .spacer {
   flex: 1 1 auto;
 }
@@ -49,18 +45,44 @@ pre {
   font-weight: 100;
 }
 
-.primary {
+.bg-primary {
   background-color: $primary-color;
-  color: aliceblue;
-
 }
 
-.accent {
+.bg-accent {
   background-color: $accent-color;
-
 }
 
-.warn {
+.bg-warn {
   background-color: $warn-color;
+}
 
+.color-primary {
+  color: $primary-color;
+}
+
+.color-accent {
+  color: $accent-color;
+}
+
+.color-warn {
+  color: $warn-color;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.chip-group>div {
+  justify-content: center;
+}
+
+.inline-text {
+  display: flex;
+  align-items: center;
+
+  >* {
+    margin-right: 8px;
+  }
 }

@@ -1,5 +1,7 @@
 <div class="col-container survey">
-  <h1 class="mat-headline-1">{{ language + " survey" | uppercase }}</h1>
+  <h1 class="mat-headline-1">
+    {{ language + " survey" | uppercase }}
+  </h1>
   <div *ngIf="survey$ | async as survey">
     <mat-stepper orientation="vertical" linear="true" #stepper>
       <mat-step
@@ -15,21 +17,11 @@
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         <p>You are now done.</p>
-        <div>
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="getResults()"
-            class="mat-h1"
-          >
+        <div class="button-row">
+          <button mat-flat-button color="primary" (click)="getResults()">
             Get Results
           </button>
-          <button
-            mat-raised-button
-            color="warn"
-            (click)="stepper.reset()"
-            class="mat-h1"
-          >
+          <button mat-flat-button color="warn" (click)="stepper.reset()">
             Reset
           </button>
         </div>

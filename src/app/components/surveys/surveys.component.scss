@@ -1,19 +1,24 @@
 @use '@angular/material'as mat;
 
 header {
-  background: #eee;
-  margin: 20px;
-  padding: 20px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: aliceblue;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   text-align: center;
   border-radius: 10px;
-}
 
-section {
-  margin: 20px;
+  h1 {
+    text-transform: capitalize;
+  }
 }
 
 mat-grid-tile {
@@ -24,5 +29,37 @@ mat-grid-tile {
 
   &:hover {
     background: #ffd740;
+  }
+}
+
+.back-image {
+  width: calc(100vw - 20px);
+  height: 75vh;
+  background: url("/assets/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  margin: 40px 0;
+  padding: 20px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .section-container {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
