@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "javascript-survey": {
+      "hosting": {
+        "programmer-level-survey": [
+          "javascript-survey"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "javascript-survey"
+  }
+}
