@@ -26,14 +26,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { providePerformance,getPerformance } from '@angular/fire/performance';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { providePerformance, getPerformance } from '@angular/fire/performance';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     MatStepperModule,
     MatProgressBarModule,
     FontAwesomeModule,
+    MatSnackBarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -74,7 +76,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideStorage(() => getStorage()),
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService, UserTrackingService
   ],
   bootstrap: [AppComponent]
 })
