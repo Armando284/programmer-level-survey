@@ -16,7 +16,6 @@ export class SurveysComponent {
   ngOnInit() {
     this.surveyService.fullSurvey.subscribe(data => {
       this.subjects = [... new Set(data.questions.map(question => question.subject))];
-      console.log('themes: ', this.subjects);
     });
   }
 }

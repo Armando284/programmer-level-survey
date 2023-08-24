@@ -92,7 +92,6 @@ export class NotFoundComponent {
     setTimeout(() => {
       cell.classList.remove('fixed');
     }, 1000);
-    console.log(this.points);
   }
 
   openSnackBar() {
