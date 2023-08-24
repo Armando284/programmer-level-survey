@@ -1,1 +1,43 @@
-<p>not-found works!</p>
+<section class="container">
+  <h1 class="mat-headline-3">The page you are looking for doesn't exist!</h1>
+  <section class="row-2">
+    <div class="side">
+      <img
+        src="/assets/images/undraw_page_not_found_re_e9o6.svg"
+        alt="Page not found image"
+      />
+    </div>
+    <div class="side">
+      <div class="cell bug"></div>
+      <span>Points: {{ points }}</span>
+      <span>Program Errors: {{ programErrors }}/{{ maxProgramErrors }}</span>
+      <div>
+        <button
+          mat-raised-button
+          color="accent"
+          class="mat-h1"
+          (click)="startDebugging()"
+          [disabled]="gameStatus === 'running'"
+        >
+          Debug</button
+        ><button
+          mat-raised-button
+          color="warn"
+          class="mat-h1"
+          (click)="stopDebugging()"
+          [disabled]="gameStatus !== 'running'"
+        >
+          Stop
+        </button>
+      </div>
+      <section id="game">
+        <div
+          *ngFor="let c of cells"
+          class="cell"
+          #cell
+          (click)="checkCell(cell)"
+        ></div>
+      </section>
+    </div>
+  </section>
+</section>

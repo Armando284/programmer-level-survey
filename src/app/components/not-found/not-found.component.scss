@@ -1,0 +1,71 @@
+.container {
+  margin: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:nth-child(1) {
+    margin-right: 20px;
+  }
+}
+
+section#game {
+  width: calc(440px + 6px);
+  height: calc(400px + 6px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1px;
+}
+
+.cell {
+  width: 88px;
+  height: 80px;
+  transition: all .3s ease-in-out;
+  background: #eee;
+
+  &:hover {
+    background: #ccc;
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 4px 4px rgba(17, 17, 17, 0.1);
+  }
+
+  &.bug {
+    width: 88px;
+    height: 80px;
+    background: url('/assets/images/Idle-Run (44x30).png') 0px 0px;
+    background-size: 880px 60px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    animation: bugIdle 1s steps(10) infinite;
+  }
+
+  &.fixed {
+    background: yellow;
+  }
+
+  &.trace {
+    background: red;
+  }
+}
+
+@keyframes bugIdle {
+  to {
+    background-position: -880px 0px;
+  }
+}
