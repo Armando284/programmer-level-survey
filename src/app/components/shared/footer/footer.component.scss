@@ -5,11 +5,10 @@ footer {
   position: static;
   bottom: 0;
   width: calc(100% - 40px);
-  height: 100px;
+  height: 70px;
   background: $primary-color;
   color: aliceblue;
-}
-
-section {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

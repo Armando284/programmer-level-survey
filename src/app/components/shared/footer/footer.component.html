@@ -1,38 +1,50 @@
 <footer>
-  <section class="copyright inline-text">
-    <mat-icon>copyright</mat-icon>
-    <span class="mat-header-6">
-      {{ date | date : "y" }}
-    </span>
-    <span> Armando Peña Tamayo </span>
-    <div>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-    </div>
-  </section>
-  <section id="assets">
-    <span>
-      Foto de
+  <div class="inline-group">
+    <section class="copyright inline-text">
+      <mat-icon>copyright</mat-icon>
+      <span class="mat-header-6">
+        {{ date | date : "y" }}
+      </span>
+      <span> Armando Peña Tamayo </span>
+    </section>
+    <section class="social-media inline-text">
+      <a mat-icon-button href="https://github.com/Armando284" target="_blank">
+        <fa-icon [icon]="faGithub" size="2x"></fa-icon>
+      </a>
+      <a mat-icon-button href="https://twitter.com/arman2p284" target="_blank">
+        <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+      </a>
       <a
-        mat-button
-        color="accent"
-        href="https://unsplash.com/es/@ffstop?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        mat-icon-button
+        href="https://www.facebook.com/profile.php?id=100015128176624"
         target="_blank"
       >
-        <mat-icon>exit_to_app</mat-icon>
-        Fotis Fotopoulos
+        <fa-icon [icon]="faFacebook" size="2x"></fa-icon>
       </a>
-      en
-      <a
-        mat-button
-        color="accent"
-        href="https://unsplash.com/es/fotos/6sAl6aQ4OWI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        target="_blank"
-      >
-        <mat-icon>exit_to_app</mat-icon>
-        Unsplash
-      </a>
-    </span>
-  </section>
+    </section>
+    <section class="assets">
+      <span>
+        Foto de
+        <a
+          mat-button
+          color="accent"
+          href="https://unsplash.com/es/@ffstop?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          target="_blank"
+        >
+          <mat-icon>exit_to_app</mat-icon>
+          Fotis Fotopoulos
+        </a>
+        en
+        <a
+          mat-button
+          color="accent"
+          href="https://unsplash.com/es/fotos/6sAl6aQ4OWI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          target="_blank"
+        >
+          <mat-icon>exit_to_app</mat-icon>
+          Unsplash
+        </a>
+      </span>
+    </section>
+  </div>
 </footer>

@@ -81,8 +81,16 @@ pre {
 .inline-text {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   >* {
     margin-right: 8px;
   }
+}
+
+.inline-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
