@@ -33,17 +33,22 @@ mat-grid-tile {
 }
 
 .back-image {
-  width: calc(100vw - 20px);
-  height: 75vh;
   background: url("/assets/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.hero-container {
+  width: calc(100vw - 20px);
+  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(65, 88, 208, .3);
+  background-image: linear-gradient(43deg, rgba(65, 88, 208, .3) 0%, rgba(200, 80, 192, .3) 46%, rgba(255, 204, 112, .3) 100%);
 }
 
 section {
@@ -51,7 +56,6 @@ section {
   padding: 20px;
   padding-bottom: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -61,5 +65,9 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &:nth-child(1) {
+      margin-right: 40px;
+    }
   }
 }

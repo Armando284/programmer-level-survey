@@ -1,32 +1,34 @@
 <div class="back-image">
-  <header>
-    <h1 class="mat-headline-1">javascript level survey</h1>
-    <span class="mat-headline-5">
-      Have you ever asked what is your software engineer level?
-    </span>
-    <i class="mat-headline-5">
-      Answer the questions and get your JavaScript level as result.
-    </i>
-    <a
-      mat-raised-button
-      color="accent"
-      [routerLink]="['/survey', 'javascript']"
-      routerLinkActive="router-link-active"
-      class="mat-h1"
-    >
-      START
-    </a>
-  </header>
+  <div class="hero-container">
+    <header>
+      <h1 class="mat-headline-1">javascript level survey</h1>
+      <span class="mat-headline-5"
+        >Have you ever asked what is your software engineer level? </span
+      ><i class="mat-headline-5"
+        >Answer the questions and get your JavaScript level as result. </i
+      ><a
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/survey', 'javascript']"
+        routerLinkActive="router-link-active"
+        class="mat-h1"
+        >START
+      </a>
+    </header>
+  </div>
 </div>
 <article>
   <section>
     <div class="section-container">
-      <span class="mat-headline-4">Themes</span>
-      <mat-chip-set class="chip-group">
-        <mat-chip class="example-box" *ngFor="let subject of subjects">
+      <img src="/assets/images/undraw_my_code_snippets_re_4adu.svg" alt="" />
+    </div>
+    <div class="section-container">
+      <span class="mat-headline-4">Themes</span
+      ><mat-chip-set class="chip-group"
+        ><mat-chip class="example-box" *ngFor="let subject of subjects">
           {{ subject }}
-        </mat-chip>
-      </mat-chip-set>
+        </mat-chip></mat-chip-set
+      >
     </div>
   </section>
   <section>
@@ -42,6 +44,9 @@
         level of knowledge in the language or what important matters you still
         have to learn.
       </p>
+    </div>
+    <div class="section-container">
+      <img src="/assets/images/undraw_survey_05s5.svg" alt="" />
     </div>
   </section>
 </article>

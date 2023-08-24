@@ -2,6 +2,11 @@
   <h1 class="mat-headline-1">
     {{ language + " survey" | uppercase }}
   </h1>
+  <img
+    src="/assets/images/undraw_static_assets_rpm6.svg"
+    alt="Html, Css and JavaScript icons"
+    width="400"
+  />
   <div *ngIf="survey$ | async as survey">
     <mat-stepper orientation="vertical" linear="true" #stepper>
       <mat-step
