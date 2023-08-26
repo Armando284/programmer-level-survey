@@ -36,6 +36,9 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { MarkdownModule } from 'ngx-markdown';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     provideFirestore(() => getFirestore()),
     providePerformance(() => getPerformance()),
     provideStorage(() => getStorage()),
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
   ],
   providers: [
     ScreenTrackingService, UserTrackingService
