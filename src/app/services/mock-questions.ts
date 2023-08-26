@@ -79,10 +79,8 @@ export const mockSurvey: Survey = {
     {
       subject: 'Number operations',
       body: 'What is the output of the following code snippet?',
-      code_md_snippet: `
-      var x = 10;
-      console.log(x++);
-      `,
+      code_md_snippet: `var x = 10;
+      console.log(x++);`,
       level: 'junior',
       answers: [
         { body: '10', isCorrect: true },
@@ -123,9 +121,7 @@ export const mockSurvey: Survey = {
     {
       subject: 'Data types',
       body: 'What is the output of the following code snippet?',
-      code_md_snippet: `
-      console.log(typeof NaN);
-      `,
+      code_md_snippet: `console.log(typeof NaN);`,
       level: 'junior',
       answers: [
         { body: 'number', isCorrect: true },

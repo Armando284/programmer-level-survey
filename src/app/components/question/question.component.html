@@ -17,11 +17,16 @@
   <mat-card-content>
     <!-- TODO: Use some markdown compatibility tool -->
     <div *ngIf="question.code_md_snippet">
-      <pre>
+      <!-- <pre>
         <code>
           {{ question.code_md_snippet }}
         </code>
-      </pre>
+      </pre> -->
+      <markdown clipboard lineNumbers [start]="1" ngPreserveWhitespaces>
+        ```javascript
+        {{ question.code_md_snippet }}
+        ```
+      </markdown>
     </div>
     <mat-radio-group class="answer-radio-group">
       <mat-radio-button
