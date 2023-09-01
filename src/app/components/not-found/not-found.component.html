@@ -1,13 +1,20 @@
 <section class="container">
-  <h1 class="mat-headline-3">The page you are looking for doesn't exist!</h1>
+  <h1
+    class="{{
+      currentScreenSize === 'XSmall' ? 'mat-headline-4' : 'mat-headline-3'
+    }} inline-text"
+  >
+    The page you are looking for doesn't exist!
+  </h1>
   <section class="row-2">
     <div class="side">
       <img
         src="/assets/images/undraw_page_not_found_re_e9o6.svg"
         alt="Page not found image"
+        width="{{ currentScreenSize === 'XSmall' ? '200' : '500' }}"
       />
     </div>
-    <div class="side">
+    <div class="side" *ngIf="currentScreenSize !== 'XSmall'">
       <div class="cell bug"></div>
       <span>Points: {{ points }}</span>
       <span>Program Errors: {{ programErrors }}/{{ maxProgramErrors }}</span>

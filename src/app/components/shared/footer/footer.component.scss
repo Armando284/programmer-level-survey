@@ -1,11 +1,11 @@
-@import '../../../../variables';
+@import 'src/variables';
 
 footer {
   padding: 20px;
   position: static;
   bottom: 0;
   width: calc(100% - 40px);
-  height: 70px;
+  min-height: 70px;
   background: $primary-color;
   color: aliceblue;
   display: flex;

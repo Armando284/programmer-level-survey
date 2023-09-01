@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { level } from '../interfaces/level';
+import { level } from '../interfaces/types';
 import { Question } from '../interfaces/question';
 
 @Injectable({
