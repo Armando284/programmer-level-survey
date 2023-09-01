@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscribable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { level } from 'src/app/interfaces/level';
+import { level } from 'src/app/interfaces/types';
 import { Question } from 'src/app/interfaces/question';
 import { Survey } from 'src/app/interfaces/survey';
 import { ResultsService } from 'src/app/services/results.service';
 import { SurveyService } from 'src/app/services/survey.service';
+import { ResponsivenessService } from 'src/app/services/responsiveness.service';
+import { screenSize } from 'src/app/interfaces/types';
 
 @Component({
   selector: 'app-survey',
@@ -16,23 +18,39 @@ import { SurveyService } from 'src/app/services/survey.service';
 export class SurveyComponent {
   survey$!: Observable<Survey>;
   questions!: Question[];
-  subscription!: Subscription;
   language: string = '';
   isSurveyFinished!: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService, private resultsService: ResultsService) { }
+  currentScreenSize!: screenSize;
+  subscriptions!: Subscription[];
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private surveyService: SurveyService,
+    private resultsService: ResultsService,
+    private responsive: ResponsivenessService,
+  ) {
+    this.subscriptions = [];
+  }
 
   ngOnInit() {
     this.language = this.route.snapshot.paramMap.get('language')!;
     this.survey$ = this.surveyService.javascriptSurvey;
-    this.subscription = this.survey$.subscribe(data => {
+    const surveySub = this.survey$.subscribe(data => {
       this.questions = data.questions;
     });
+    this.subscriptions.push(surveySub);
+
     this.isSurveyFinished = false;
+    const responsiveSub = this.responsive.screenSize.subscribe(data => {
+      this.currentScreenSize = data;
+    });
+    this.subscriptions.push(responsiveSub);
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
     // NOTE: this is in case there is a copy of the questions in memory
     this.questions.forEach(data => { data.response = false });
   }

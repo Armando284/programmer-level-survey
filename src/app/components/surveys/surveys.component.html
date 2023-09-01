@@ -1,12 +1,34 @@
 <div class="back-image">
-  <div class="hero-container">
-    <header>
-      <h1 class="mat-headline-1">javascript level survey</h1>
+  <div class="hero-container" [ngClass]="currentScreenSize">
+    <header
+      [ngClass]="{
+        'p-4 m-4': currentScreenSize !== 'XSmall',
+        'p-1 m-1': currentScreenSize === 'XSmall'
+      }"
+    >
+      <h1
+        [ngClass]="{
+          'mat-headline-1': currentScreenSize !== 'XSmall',
+          'mat-headline-3': currentScreenSize === 'XSmall'
+        }"
+      >
+        javascript level survey
+      </h1>
 
-      <span class="mat-headline-5">
+      <span
+        [ngClass]="{
+          'mat-headline-5': currentScreenSize !== 'XSmall',
+          'mat-headline-6': currentScreenSize === 'XSmall'
+        }"
+      >
         Have you ever asked what is your software engineer level?
       </span>
-      <i class="mat-headline-5">
+      <i
+        [ngClass]="{
+          'mat-headline-5': currentScreenSize !== 'XSmall',
+          'mat-headline-6': currentScreenSize === 'XSmall'
+        }"
+      >
         Answer the questions and get your JavaScript level as result.
       </i>
       <a
@@ -21,22 +43,40 @@
   </div>
 </div>
 <article>
-  <section>
+  <h2 class="mat-headline-3">Subjects</h2>
+  <section
+    [ngClass]="{
+      'p-4': currentScreenSize !== 'XSmall',
+      'p-1': currentScreenSize === 'XSmall',
+    }"
+    [class]="currentScreenSize"
+    class="m-4"
+  >
     <div class="section-container">
-      <img src="/assets/images/undraw_my_code_snippets_re_4adu.svg" alt="" />
+      <img
+        src="/assets/images/undraw_my_code_snippets_re_4adu.svg"
+        alt="Programming language survey image"
+        width="500"
+      />
     </div>
     <div class="section-container">
-      <span class="mat-headline-4">Themes</span
-      ><mat-chip-set class="chip-group"
-        ><mat-chip class="example-box" *ngFor="let subject of subjects">
+      <mat-chip-set class="chip-group">
+        <mat-chip class="example-box" *ngFor="let subject of subjects">
           {{ subject }}
-        </mat-chip></mat-chip-set
-      >
+        </mat-chip>
+      </mat-chip-set>
     </div>
   </section>
-  <section>
+  <h2 class="mat-headline-3">Objective</h2>
+  <section
+    [ngClass]="{
+      'p-4': currentScreenSize !== 'XSmall',
+      'p-1': currentScreenSize === 'XSmall',
+    }"
+    [class]="currentScreenSize"
+    class="m-4"
+  >
     <div class="section-container">
-      <span class="mat-headline-4">Objective</span>
       <p>
         This survey's objective it's to provide a list of SIMPLE QUESTIONS about
         the most common knowledge points of each level of proficiency in the
@@ -49,7 +89,11 @@
       </p>
     </div>
     <div class="section-container">
-      <img src="/assets/images/undraw_survey_05s5.svg" alt="" />
+      <img
+        src="/assets/images/undraw_survey_05s5.svg"
+        alt="Comments at a mobile device image"
+        width="500"
+      />
     </div>
   </section>
 </article>

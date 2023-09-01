@@ -1,5 +1,8 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ResponsivenessService } from 'src/app/services/responsiveness.service';
+import { screenSize } from 'src/app/interfaces/types';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-not-found',
@@ -17,15 +20,31 @@ export class NotFoundComponent {
   points!: number;
   gameStatus!: 'off' | 'running' | 'paused';
 
-  constructor(private _snackBar: MatSnackBar) {
+
+  currentScreenSize!: screenSize;
+  subscriptions!: Subscription[];
+
+  constructor(
+    private _snackBar: MatSnackBar,
+    private responsive: ResponsivenessService,
+  ) {
     let i = 0;
     this.cells = Array.from({ length: 25 }, () => i++);
     this.points = 0;
     this.gameStatus = 'off';
     this.maxProgramErrors = 10;
+    this.subscriptions = [];
+  }
+
+  ngOnInit() {
+    const responsiveSub = this.responsive.screenSize.subscribe(data => {
+      this.currentScreenSize = data;
+    });
+    this.subscriptions.push(responsiveSub);
   }
 
   ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
     this.stopDebugging();
     this.points = 0;
   }

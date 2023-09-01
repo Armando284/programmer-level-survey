@@ -1,5 +1,5 @@
 import { Answer } from "./answer";
-import { level } from "./level";
+import { level } from "./types";
 
 export interface Question {
   subject: string,
