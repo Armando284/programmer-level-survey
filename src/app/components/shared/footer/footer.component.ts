@@ -28,8 +28,6 @@ export class FooterComponent {
   ngOnInit() {
     const responsiveSub = this.responsive.screenSize.subscribe(data => {
       this.currentScreenSize = data;
-      console.log('current size: ', this.currentScreenSize);
-
     });
     this.subscriptions.push(responsiveSub);
   }
