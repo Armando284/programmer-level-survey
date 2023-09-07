@@ -35,9 +35,13 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TimerComponent } from './components/shared/timer/timer.component';
+import { InformationDialogComponent } from './components/shared/information-dialog/information-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     SurveyComponent,
     QuestionComponent,
     NotFoundComponent,
-    ResultsComponent
+    ResultsComponent,
+    TimerComponent,
+    InformationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +76,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     MatProgressBarModule,
     FontAwesomeModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
