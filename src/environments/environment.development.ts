@@ -9,6 +9,6 @@ export const environment = {
     measurementId: 'G-6T7L14RJ49',
   },
   production: false,
-  questionsPerLevel: 1,
+  questionsPerLevel: 3,
   surveyTimerInSeconds: 2 * 60,
 };
