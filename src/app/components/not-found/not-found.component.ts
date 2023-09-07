@@ -2,7 +2,7 @@ import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ResponsivenessService } from 'src/app/services/responsiveness.service';
 import { screenSize } from 'src/app/interfaces/types';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-not-found',
