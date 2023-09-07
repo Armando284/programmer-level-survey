@@ -10,4 +10,5 @@ export const environment = {
   },
   production: false,
   questionsPerLevel: 1,
+  surveyTimerInSeconds: 2 * 60,
 };
