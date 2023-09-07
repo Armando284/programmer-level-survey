@@ -1,0 +1,24 @@
+<div
+  class="timer-container"
+  [ngClass]="{ scrolled: isSticky }"
+  #tooltip="matTooltip"
+  matTooltip="{{ minutes }}:{{ seconds }} minutes left."
+  [matTooltipPosition]="position"
+  matTooltipHideDelay="100000"
+  aria-label="Spin that displays a count down for surveys remaining time, it displays a tooltip with more data about remaining time."
+>
+  <mat-spinner
+    [color]="color"
+    mode="determinate"
+    value="100"
+    class="track"
+  ></mat-spinner>
+  <mat-progress-spinner [color]="color" [mode]="mode" [value]="value">
+  </mat-progress-spinner>
+  <span
+    id="minutes"
+    [ngClass]="{ 'last-seconds': minutes === 0 && seconds === 0 }"
+  >
+    {{ minutes }}
+  </span>
+</div>

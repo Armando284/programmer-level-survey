@@ -1,0 +1,44 @@
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+  &.scrolled {
+    position: fixed;
+    top: calc(64px + 10px);
+    right: 10px;
+    z-index: 10;
+    scale: .5;
+  }
+
+  .track {
+    position: absolute;
+    opacity: .3;
+  }
+
+  #minutes {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 700;
+
+    &.last-seconds {
+      animation: bounce 1s linear infinite;
+    }
+  }
+}
+
+@keyframes bounce {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: .9;
+  }
+}
