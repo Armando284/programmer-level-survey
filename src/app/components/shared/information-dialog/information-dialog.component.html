@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>JavaScript Level Survey</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>
+    By starting this survey you will find 30 JavaScript questions of different
+    difficulty level.
+  </h3>
+  <span>You have 45 minutes to finish the survey.</span>
+  <p>
+    After all the questions you will get information about your current level on
+    the language and what topics you need to deep on.
+  </p>
+  <span class="mat-subtitle-2" color="warn">
+    Please don't minimize this site or your survey will restart.
+  </span>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    Start Survey
+  </button>
+</mat-dialog-actions>
