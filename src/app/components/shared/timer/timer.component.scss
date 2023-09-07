@@ -4,6 +4,10 @@
   justify-content: center;
   cursor: pointer;
   transition: all .3s ease-in-out;
+  background: white;
+  border-radius: 50%;
+  margin: 0 0 64px;
+  position: inherit;
 
   &.scrolled {
     position: fixed;

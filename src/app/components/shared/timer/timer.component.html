@@ -1,6 +1,9 @@
 <div
   class="timer-container"
-  [ngClass]="{ scrolled: isSticky }"
+  [ngClass]="{
+    'mat-elevation-z2': !isSticky,
+    'scrolled mat-elevation-z8': isSticky,
+  }"
   #tooltip="matTooltip"
   matTooltip="{{ minutes }}:{{ seconds }} minutes left."
   [matTooltipPosition]="position"

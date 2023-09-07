@@ -21,7 +21,7 @@ export class TimerComponent {
 
   mode: ProgressSpinnerMode = 'determinate';
   value: number = 0;
-  minutes: number = 60;
+  minutes: number = 45;
   seconds: number = 59;
 
   position: TooltipPosition = 'left';
@@ -30,7 +30,7 @@ export class TimerComponent {
 
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
-    this.isSticky = window.scrollY >= 350;
+    this.isSticky = window.scrollY >= 120;
   }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class TimerComponent {
       this.time--;
       this.minutes = Math.floor(this.time / 60);
       this.seconds = this.time % 60;
-      this.value = (60 - this.seconds) * 100 / 60;
+      this.value = (/*60 - */ this.seconds) * 100 / 60;
       if (this.time <= 0) {
         this.stopTimer();
         this.timeOut.emit(true);
