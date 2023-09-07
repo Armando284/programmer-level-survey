@@ -14,15 +14,15 @@ export class NotFoundComponent {
   @ViewChildren('cell') cellEls!: QueryList<ElementRef>;
 
   update!: ReturnType<typeof setInterval>;
-  cells!: number[];
-  programErrors!: number;
-  maxProgramErrors!: number;
-  points!: number;
-  gameStatus!: 'off' | 'running' | 'paused';
-
+  cells: number[] = [];
+  programErrors: number = 0;
+  maxProgramErrors: number = 10;
+  points: number = 0;
+  gameStatus: 'off' | 'running' | 'paused' = 'off';
+  private _brokenCells: Set<number> = new Set();
 
   currentScreenSize!: screenSize;
-  subscriptions!: Subscription[];
+  subscriptions: Subscription[] = [];
 
   constructor(
     private _snackBar: MatSnackBar,
@@ -30,10 +30,6 @@ export class NotFoundComponent {
   ) {
     let i = 0;
     this.cells = Array.from({ length: 25 }, () => i++);
-    this.points = 0;
-    this.gameStatus = 'off';
-    this.maxProgramErrors = 10;
-    this.subscriptions = [];
   }
 
   ngOnInit() {
@@ -50,12 +46,13 @@ export class NotFoundComponent {
   }
 
   private cleanBugs() {
-    this.cellEls.forEach(el => {
+    this.cellEls.forEach((el, i) => {
       if (!el.nativeElement.classList.contains('bug')) return;
       if (this.gameStatus === 'running') {
         el.nativeElement.classList.add('trace');
+        this._brokenCells.add(i);
         this.programErrors++;
-        if (this.programErrors > this.maxProgramErrors) {
+        if (this.programErrors >= this.maxProgramErrors) {
           this.gameOver();
         }
       }
@@ -80,7 +77,7 @@ export class NotFoundComponent {
       let randPos: number;
       do {
         randPos = Math.floor(Math.random() * this.cellEls.length);
-      } while (lastPos === randPos);
+      } while (lastPos === randPos && this._brokenCells.has(randPos));
       lastPos = randPos;
       this.cellEls.get(randPos)?.nativeElement.classList.add('bug');
     }, 1000);
@@ -113,7 +110,7 @@ export class NotFoundComponent {
     }, 1000);
   }
 
-  openSnackBar() {
+  openSnackBar(): void {
     this._snackBar.open('GAME OVER', '💥', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
