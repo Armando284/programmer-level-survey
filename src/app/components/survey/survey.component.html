@@ -11,6 +11,11 @@
     alt="Html, Css and JavaScript icons"
     width="{{ currentScreenSize === 'XSmall' ? '200' : '500' }}"
   />
+  <app-timer
+    [totalTime]="surveyTime"
+    [timerState]="timerState"
+    (timeOut)="stopSurvey()"
+  ></app-timer>
   <div *ngIf="survey$ | async as survey">
     <mat-stepper orientation="vertical" linear="true" #stepper>
       <mat-step

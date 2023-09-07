@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscribable, Subscription } from 'rxjs';
+import { Observable, Subscribable, Subscription, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { level } from 'src/app/interfaces/types';
 import { Question } from 'src/app/interfaces/question';
@@ -9,6 +9,9 @@ import { ResultsService } from 'src/app/services/results.service';
 import { SurveyService } from 'src/app/services/survey.service';
 import { ResponsivenessService } from 'src/app/services/responsiveness.service';
 import { screenSize } from 'src/app/interfaces/types';
+import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { InformationDialogComponent } from '../shared/information-dialog/information-dialog.component';
 
 @Component({
   selector: 'app-survey',
@@ -19,10 +22,13 @@ export class SurveyComponent {
   survey$!: Observable<Survey>;
   questions!: Question[];
   language: string = '';
-  isSurveyFinished!: boolean;
+  isSurveyFinished: boolean = false;
 
   currentScreenSize!: screenSize;
-  subscriptions!: Subscription[];
+  subscriptions: Subscription[] = [];
+
+  surveyTime: number = environment.surveyTimerInSeconds; // milliseconds
+  timerState: Subject<boolean> = new Subject();
 
   constructor(
     private route: ActivatedRoute,
@@ -30,9 +36,8 @@ export class SurveyComponent {
     private surveyService: SurveyService,
     private resultsService: ResultsService,
     private responsive: ResponsivenessService,
-  ) {
-    this.subscriptions = [];
-  }
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.language = this.route.snapshot.paramMap.get('language')!;
@@ -42,17 +47,55 @@ export class SurveyComponent {
     });
     this.subscriptions.push(surveySub);
 
-    this.isSurveyFinished = false;
     const responsiveSub = this.responsive.screenSize.subscribe(data => {
       this.currentScreenSize = data;
     });
     this.subscriptions.push(responsiveSub);
+
+    this.openDialog();
+
   }
 
   ngOnDestroy() {
     this.subscriptions.forEach(sub => sub.unsubscribe());
-    // NOTE: this is in case there is a copy of the questions in memory
     this.questions.forEach(data => { data.response = false });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(InformationDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === false) {
+        this.router.navigate(['']);
+        return;
+      }
+      this.startSurvey();
+    });
+  }
+
+  startSurvey() {
+    this.timerState.next(true);
+
+    const checkBrowserTabFocus = () => {
+      if (document.visibilityState !== 'visible') {
+        document.removeEventListener('visibilitychange', checkBrowserTabFocus);
+        this.router.navigate(['']);
+        throw new Error('Survey finished due to stepping out of page.')
+      }
+    }
+
+    document.addEventListener('visibilitychange', checkBrowserTabFocus);
+  }
+
+  stopSurvey() {
+    // * small timer so users don't feel it unfair
+    setTimeout(() => {
+      this.getResults();
+    }, 3000);
+  }
+
+  stopTimer() {
+    this.timerState.next(false);
   }
 
   addResponse(isCorrect: boolean, idx: number): void {
@@ -60,6 +103,7 @@ export class SurveyComponent {
   }
 
   getResults(): void {
+    this.stopTimer();
     this.isSurveyFinished = true;
     this.resultsService.addResults(this.isSurveyFinished, this.resultsByLevel, this.questionsByLevel, this.wrongQuestions);
     this.router.navigate(['results']);
