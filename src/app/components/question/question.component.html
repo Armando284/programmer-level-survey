@@ -7,7 +7,11 @@
           <mat-chip>
             {{ question.subject | uppercase }}
           </mat-chip>
-          <mat-chip-option [color]="tagColor" selected selectable="false">
+          <mat-chip-option
+            [color]="tagColor(question.level)"
+            selected
+            selectable="false"
+          >
             {{ question.level | uppercase }}
           </mat-chip-option>
         </mat-chip-listbox>
@@ -15,13 +19,7 @@
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
-    <!-- TODO: Use some markdown compatibility tool -->
     <div *ngIf="question.code_md_snippet">
-      <!-- <pre>
-        <code>
-          {{ question.code_md_snippet }}
-        </code>
-      </pre> -->
       <markdown clipboard lineNumbers [start]="1" ngPreserveWhitespaces>
         ```javascript
         {{ question.code_md_snippet }}

@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Question } from 'src/app/interfaces/question';
 import { Output, EventEmitter } from '@angular/core';
+import { tagColor } from 'src/app/helpers';
 
-type color = 'primary' | 'accent' | 'warn';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -12,19 +12,11 @@ export class QuestionComponent {
   @Input() question!: Question;
   @Output() answerSelect = new EventEmitter<boolean>();
 
-  constructor() {
-  }
+  constructor() { }
 
   sendResponse(isCorrect: boolean = false) {
     this.answerSelect.emit(isCorrect);
   }
 
-  get tagColor(): color {
-    const colors = {
-      'junior': 'primary',
-      'semi-senior': 'accent',
-      'senior': 'warn',
-    };
-    return colors[this.question.level] as color;
-  }
+  tagColor = tagColor;
 }
