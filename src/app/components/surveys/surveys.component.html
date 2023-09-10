@@ -43,63 +43,105 @@
   </div>
 </div>
 <article>
-  <h2 class="mat-headline-3" color="warn">
-    <fa-icon [icon]="faHeart"></fa-icon>
-    by:
-    {{ favs }}
-    <fa-icon [icon]="faPeople"></fa-icon>
-  </h2>
-  <h2 class="mat-headline-3">Subjects</h2>
   <section
+    *ngIf="isChartDataReady"
     [ngClass]="{
-      'p-4': currentScreenSize !== 'XSmall',
-      'p-1': currentScreenSize === 'XSmall',
-    }"
+    'p-4': currentScreenSize !== 'XSmall',
+    'p-1': currentScreenSize === 'XSmall',
+  }"
     [class]="currentScreenSize"
-    class="m-4"
   >
+    <h2 class="mat-headline-3 text-center">Results</h2>
     <div class="section-container">
-      <img
-        src="/assets/images/undraw_my_code_snippets_re_4adu.svg"
-        alt="Programming language survey image"
-        width="500"
-      />
-    </div>
-    <div class="section-container">
-      <mat-chip-set class="chip-group">
-        <mat-chip class="example-box" *ngFor="let subject of subjects">
-          {{ subject }}
-        </mat-chip>
-      </mat-chip-set>
+      <div class="section-col">
+        <h2 class="caption text-center">
+          <fa-icon [icon]="faUser"></fa-icon>
+          used by:
+          {{ userAmount }}
+          <fa-icon [icon]="faPeople"></fa-icon>
+        </h2>
+        <h2 class="caption text-center">
+          <fa-icon [icon]="faHeart"></fa-icon>
+          loved by:
+          {{ favs }}
+          <fa-icon [icon]="faPeople"></fa-icon>
+        </h2>
+        <mat-chip-listbox aria-label="Total users per level">
+          <mat-chip-option
+            *ngFor="let level of totalUsersPerLevel | keyvalue"
+            selected
+            [color]="tagColor(level.key)"
+          >
+            {{ level.key | uppercase }} : {{ level.value }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+        <canvas
+          baseChart
+          [width]="chartWidth"
+          height="400"
+          [type]="'line'"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+        >
+        </canvas>
+      </div>
     </div>
   </section>
-  <h2 class="mat-headline-3">Objective</h2>
+
   <section
     [ngClass]="{
-      'p-4': currentScreenSize !== 'XSmall',
-      'p-1': currentScreenSize === 'XSmall',
-    }"
+    'p-4': currentScreenSize !== 'XSmall',
+    'p-1': currentScreenSize === 'XSmall',
+  }"
     [class]="currentScreenSize"
-    class="m-4"
   >
+    <h2 class="mat-headline-3 text-center mt-4">Subjects</h2>
     <div class="section-container">
-      <p>
-        This survey's objective it's to provide a list of SIMPLE QUESTIONS about
-        the most common knowledge points of each level of proficiency in the
-        JavaScript programming language.
-      </p>
-      <p>
-        Answering the full survey will give you an idea of what is your current
-        level of knowledge in the language or what important matters you still
-        have to learn.
-      </p>
+      <div class="section-col">
+        <img
+          src="/assets/images/undraw_my_code_snippets_re_4adu.svg"
+          alt="Programming language survey image"
+          width="500"
+        />
+      </div>
+      <div class="section-col">
+        <mat-chip-set class="chip-group">
+          <mat-chip class="example-box" *ngFor="let subject of subjects">
+            {{ subject }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
     </div>
+  </section>
+  <section
+    [ngClass]="{
+    'p-4': currentScreenSize !== 'XSmall',
+    'p-1': currentScreenSize === 'XSmall',
+  }"
+    [class]="currentScreenSize"
+  >
+    <h2 class="mat-headline-3 text-center mt-4">Objective</h2>
     <div class="section-container">
-      <img
-        src="/assets/images/undraw_survey_05s5.svg"
-        alt="Comments at a mobile device image"
-        width="500"
-      />
+      <div class="section-col">
+        <p>
+          This survey's objective it's to provide a list of SIMPLE QUESTIONS
+          about the most common knowledge points of each level of proficiency in
+          the JavaScript programming language.
+        </p>
+        <p>
+          Answering the full survey will give you an idea of what is your
+          current level of knowledge in the language or what important matters
+          you still have to learn.
+        </p>
+      </div>
+      <div class="section-col">
+        <img
+          src="/assets/images/undraw_survey_05s5.svg"
+          alt="Comments at a mobile device image"
+          width="500"
+        />
+      </div>
     </div>
   </section>
 </article>

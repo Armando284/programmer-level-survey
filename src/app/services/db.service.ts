@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
 import { level } from '../interfaces/types';
 import { UserResult } from '../interfaces/user-result';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,12 @@ export class DbService {
   unsubscribeFavs!: ReturnType<typeof onSnapshot>;
 
   resultsCollection: CollectionReference = collection(this.firestore, 'userResults');
+  results$ = new EventEmitter<UserResult[]>();
+  private _userResults: UserResult[] = [];
 
   constructor() {
     this.getFavs();
+    this.getUserResults();
   }
 
   ngOnDestroy() {
@@ -37,6 +41,7 @@ export class DbService {
       const data = doc.data();
       if (!data) throw new Error('DB favourites is empty or didn\'t respond');
       this.favs = data?.['amount'];
+      this.updateFavsCache(this.favs);
     };
     getDoc(this.favsDoc).then(unwrapFavs);
 
@@ -77,14 +82,21 @@ export class DbService {
 
   //#region RESULTS
 
-  saveUserResults(level: level): void {
-    addDoc(this.resultsCollection, <UserResult>{ level, createdAt: serverTimestamp() }).then((documentReference: DocumentReference) => {
-      console.log('saved:', documentReference);
-    });
+  get userResults(): UserResult[] {
+    return this._userResults;
+  }
+
+  set userResults(results: UserResult[]) {
+    this._userResults = results;
+    this.results$.emit(this._userResults);
+  }
+
+  async saveUserResults(level: level): Promise<void> {
+    await addDoc(this.resultsCollection, <UserResult>{ level, createdAt: serverTimestamp() });
   }
 
   async getUserResults() {
-    let userResults: UserResult[] = JSON.parse(localStorage.getItem('results') || '[]');
+    this.userResults = JSON.parse(localStorage.getItem('results') || '[]');
 
     const querySnapshot = await getDocs(this.resultsCollection);
     const results: any[] = [];
@@ -95,18 +107,39 @@ export class DbService {
 
     // Validate if data was retrieved && parse it && update cache
     if (results.length > 0) {
-      userResults = results.map<UserResult>(result => {
+      this.userResults = results.map<UserResult>(result => {
         const timestamp = new Timestamp(result.createdAt.seconds, result.createdAt.nanoseconds);
         return {
           level: result.level,
-          createdAt: timestamp.toDate(),
+          createdAt: timestamp.toDate().toLocaleDateString(),
         };
       });
-      localStorage.setItem('results', JSON.stringify(userResults));
+      localStorage.setItem('results', JSON.stringify(this.userResults));
+    }
+  }
+
+  async seed() {
+    if (environment.production) return;
+
+    const createRandomLevel = () => {
+      const levels: level[] = ['beginner', 'junior', 'semi-senior', 'senior'];
+      return levels[Math.floor(Math.random() * levels.length)];
     }
 
-    console.log('results: ', userResults);
-    return userResults;
+    const createRandomDate = () => {
+      const today = new Date().getDate();
+      const randomDay = Math.ceil(Math.random() * today - 1);
+      const date = new Date(2023, 8, randomDay);
+      return date;
+    }
+
+    const results: level[] = Array.from({ length: 103 }, () => createRandomLevel());
+
+    results.forEach(async (res) => {
+      await addDoc(this.resultsCollection, <UserResult>{ level: res, createdAt: Timestamp.fromDate(createRandomDate()) });
+    });
+
+    console.info('Seed finished');
   }
 
   //#endregion

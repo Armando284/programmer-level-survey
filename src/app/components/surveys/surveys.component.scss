@@ -58,13 +58,12 @@ mat-grid-tile {
 }
 
 section {
-  padding-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   &.XSmall {
-    flex-direction: column;
     text-align: center;
 
     >:nth-child(1) {
@@ -75,25 +74,38 @@ section {
       width: 200px;
     }
 
+    .section-container {
+      flex-direction: column;
+    }
+
     .section-container:nth-child(1) {
       margin-right: 0px;
     }
   }
 
   .section-container {
-    max-width: 720px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    &:nth-child(1) {
-      margin-right: 40px;
+    .section-col {
+      max-width: 720px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &:nth-child(1) {
+        margin-right: 40px;
+      }
+
+      &:only-child {
+        margin-right: 0px;
+      }
     }
   }
 }
 
-.mat-headline-3 {
-  margin-top: 40px;
+.text-center {
   text-align: center;
 }
