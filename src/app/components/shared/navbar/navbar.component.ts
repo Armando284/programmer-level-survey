@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { Firestore, collection, collectionData, CollectionReference, DocumentReference, addDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs/internal/Observable';
+import { Component } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { DbService } from 'src/app/services/db.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,33 +8,32 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  private firestore: Firestore = inject(Firestore); // inject Cloud Firestore
-  users$!: Observable<UserFab[]>;
-  usersCollection!: CollectionReference;
-  userFabs: number = 0;
 
-  constructor() {
-    // get a reference to the user-profile collection
-    const userProfileCollection = collection(this.firestore, 'userFab');
+  isFav: boolean = false;
 
-    // get documents (data) from the collection using collectionData
-    this.users$ = collectionData(userProfileCollection) as Observable<UserFab[]>;
+  constructor(
+    private _db: DbService
+  ) {
+    this.isFav = localStorage.getItem('isFav') === 'true';
+    console.log('fav?', this.isFav);
+
   }
 
-  addToFavorites() {
-    const amount = this.userFabs++;
-    // TODO: call a service that adds to the fav general counting
-    addDoc(this.usersCollection, <UserFab>{ amount }).then((documentReference: DocumentReference) => {
-      // the documentReference provides access to the newly created document
-    });
+  get color(): ThemePalette | 'white' {
+    if (this.isFav) return 'warn';
+    return 'white';
+  }
+
+  toggleFavorites() {
+    this.isFav = !this.isFav;
+    this.isFav ?
+      this._db.addFav() :
+      this._db.restFav();
+    localStorage.setItem('isFav', this.isFav.toString());
   }
 
   share() {
     // TODO: show sharing window
   }
 
-}
-
-export interface UserFab {
-  amount: number;
 }

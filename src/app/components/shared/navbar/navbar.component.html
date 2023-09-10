@@ -15,9 +15,9 @@
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
-    (click)="addToFavorites()"
+    (click)="toggleFavorites()"
   >
-    <mat-icon>favorite</mat-icon>
+    <mat-icon [color]="color">favorite</mat-icon>
   </button>
   <!-- <button
     mat-icon-button
