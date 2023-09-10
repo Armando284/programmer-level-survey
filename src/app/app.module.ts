@@ -42,6 +42,7 @@ import { TimerComponent } from './components/shared/timer/timer.component';
 import { InformationDialogComponent } from './components/shared/information-dialog/information-dialog.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     provideStorage(() => getStorage()),
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
+    NgChartsModule,
   ],
   providers: [
     ScreenTrackingService, UserTrackingService

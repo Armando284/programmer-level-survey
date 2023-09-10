@@ -3,5 +3,5 @@ import { level } from "./types";
 
 export interface UserResult {
   level: level,
-  createdAt: Date | FieldValue,
+  createdAt: string | Date | FieldValue,
 }

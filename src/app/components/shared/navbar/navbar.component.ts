@@ -15,8 +15,6 @@ export class NavbarComponent {
     private _db: DbService
   ) {
     this.isFav = localStorage.getItem('isFav') === 'true';
-    console.log('fav?', this.isFav);
-
   }
 
   get color(): ThemePalette | 'white' {
